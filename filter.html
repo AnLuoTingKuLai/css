@@ -17,7 +17,7 @@
 <style lang="scss">
   div {
   position: relative;
-  margin: 0 auto;
+  margin: 0;
   width: 960px;
   height: 600px;
 }
@@ -94,18 +94,9 @@ p {
     let x = e.clientX - 960/2;
     let y = e.clientY - 600/2;
 
-    let xd
-    let yd
-    xd = x - x1
-    yd = 
-    console.log(x,x1,xd)
-    if(xd) {
-    document.documentElement.style.setProperty('--x', xd + 'px')
-  }
-  if(yd) {
+    document.documentElement.style.setProperty('--x', x + 'px')
 
-    document.documentElement.style.setProperty('--y', yd + 'px')
-  }
+    document.documentElement.style.setProperty('--y', y + 'px')
     document.documentElement.style.setProperty('--bg-x', x + 'px')
     document.documentElement.style.setProperty('--bg-y', y + 'px')
   })
