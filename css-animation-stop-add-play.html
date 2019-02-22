@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input id="stop" type="radio" name="playAnimation"/>
+  <input id="play" type="radio" name="playAnimation"/>
+  
+  <div class="box">
+      <label for="stop" class="stop">
+          <div class="btn">stop</div>
+      </label>
+      <label for="play" class="play">
+          <div class="btn">play</div>
+      </label>
+  </div>
+  
+  <div class="animation"></div>
+</body>
+<style lang="scss">
+.animation {
+  width: 100px;
+  height: 100px;
+  margin: 50px auto;
+  background: deeppink;
+  -webkit-animation: move 2s linear infinite alternate;
+          animation: move 2s linear infinite alternate;
+}
+
+input {
+  display: none;
+}
+
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: translate(-100px, 0);
+            transform: translate(-100px, 0);
+  }
+  100% {
+    -webkit-transform: translate(100px, 0);
+            transform: translate(100px, 0);
+  }
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: translate(-100px, 0);
+            transform: translate(-100px, 0);
+  }
+  100% {
+    -webkit-transform: translate(100px, 0);
+            transform: translate(100px, 0);
+  }
+}
+.btn {
+  width: 50px;
+  margin: 10px auto;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #ddd;
+  color: #333;
+}
+.btn:active {
+  background: #aaa;
+}
+
+#stop:checked ~ .animation {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+#stop:checked ~ .box .stop {
+  display: none;
+}
+#stop:checked ~ .box .play {
+  display: block;
+}
+#play:checked ~ .animation {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+.play {
+  display: none;
+}
+#play:checked ~ .box .play {
+  display: none;
+}
+#play:checked ~ .box .stop {
+  display: show;
+}
+</style>
+
+</html>

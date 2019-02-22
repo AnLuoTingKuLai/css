@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div></div>
+</body>
+<style lang="scss">
+  div {
+  }
+  div::before {
+  position: absolute;
+  content: 'clip test';
+  margin: auto;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  font-size: 180px;
+  font-weight: bold;
+  color: transparent;
+  text-shadow: 3px 3px 3px rgba(0,0,0,.5);
+  }
+div::after {
+  position: absolute;
+  content: 'clip test';
+  margin: auto;
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+  font-size: 180px;
+  font-weight: bold;
+  color: transparent;
+  background: url("b.jpg") no-repeat center center;
+  background-size: 150% 150%;
+  -webkit-background-clip: text;
+  animation: an 10s linear infinite alternate;
+}
+
+@keyframes an {
+  0% {
+    background-position: 0;
+  }
+  30% {
+    background-size: 150% 150%;
+  }
+  70% {
+    background-size: 160% 160%;
+    background-position: -100px;
+  }
+  100% {
+    background-position: -100px 30px;
+  }
+}
+</style>
+
+</html>
